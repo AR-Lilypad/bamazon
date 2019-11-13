@@ -9,33 +9,33 @@ USE bamazonDB;
 -- Creates the table "products" within bamazonDB --
 CREATE TABLE products (
   -- Makes an integer column called "id" which cannot contain null --
-  id INT NOT NULL AUTO_INCREMENT,
+  ID INT NOT NULL AUTO_INCREMENT,
   -- Makes a string column called "product_name" which cannot contain null --
-  product_name VARCHAR(50),
+  Product_Name VARCHAR(50),
   -- Makes a string column called "product_name" which cannot contain null --
-  department_name VARCHAR(50),
+  Department_Name VARCHAR(50),
  -- Makes an numeric column called "price" --
-  price DECIMAL(10,2) NULL,
+  Price DECIMAL(10,2) NULL,
   -- Makes an numeric column called "qty" --
-  quantity INT NULL,
+  Quantity INT NULL,
   -- Makes an numeric column called "pet_age" --
   PRIMARY KEY (id)
 );
 
 -- Creates new rows containing data in all named columns --
-INSERT INTO products (product_name, department_name, price, quantity)
+INSERT INTO products (Product_Name, Department_Name, Price, Quantity)
 VALUES ("Instinct cat food 24_3oz cans", "pet supplies", 33.50, 229);
 
-INSERT INTO products (product_name, department_name, price, quantity)
+INSERT INTO products (Product_Name, Department_Name, Price, Quantity)
 VALUES ("Whole Earth cat food 24_3oz cans", "pet supplies", 24.99, 361);
 
-INSERT INTO products (product_name, department_name, price, quantity)
+INSERT INTO products (Product_Name, Department_Name, Price, Quantity)
 VALUES ("Adirondack Dry Cat Food 10lb bags", "pet supplies", 32.00, 148);
 
-INSERT INTO products (product_name, department_name, price, quantity)
+INSERT INTO products (Product_Name, Department_Name, Price, Quantity)
 VALUES ("Greenies Natural Dental Care Treats", "pet supplies", 4.99, 117);
 
-INSERT INTO products (product_name, department_name, price, quantity)
+INSERT INTO products (Product_Name, Department_Name, Price, Quantity)
 VALUES ("FuelMeFoot - Socks", "clothing", 7.99, 337);
 
 INSERT INTO products (product_name, department_name, price, quantity)
