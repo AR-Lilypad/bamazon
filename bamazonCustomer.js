@@ -1,10 +1,9 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const Table = require("cli-table");
 
+// ccreate the onnection to mysql server
 let connection = mysql.createConnection({
     host: "localhost",
-    // my port; if not 3306
     port: 3306,
     // username
     user: "root",
@@ -17,14 +16,13 @@ let connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     // run the start function after the connection is made to prompt the user
-   
 });
 
 function bamTable() {
     // query the database for items being purchased
     connection.query("SELECT * FROM products", function (err, results) {
         if (err) throw err;
-        console.log( "\n");
+        console.log("\n");
         console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + "\n");
         console.log("Welcome to the newest shopping site: Bamazon");
         console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" + "\n");
@@ -34,7 +32,7 @@ function bamTable() {
 bamTable();
 
 // let the shopping begin- create function to begin the query
-function shop(){
+function shop() {
     inquirer
         .prompt([
             {
@@ -45,12 +43,20 @@ function shop(){
             {
                 name: "quantity",
                 type: "input",
-                message: "How many units would you like to purchase?"
+                message: "How many units would you like to purchase?",
+                
+                validate: function (value) {
+                    if (isNaN(value) === false) {
+                        return true;
+                    }
+                    return false;
+                }
             }
         ])
-        .then(function (answer) {
+        .then(function (purchase) {
             // get the information of the shoppers 'cart'
-            let itemSelected = 
+            let itemSelected = purchase.id; 
+            let quantity = purchase.quantity
             for (var i = 0; i < results.length; i++) {
                 if (results[i].id === answer.id) {
                     itemSelected = results[i];
@@ -59,6 +65,7 @@ function shop(){
         })
 }
 
+shop();
 
 
 // // connect to the mysql server and sql database then run the prompt
