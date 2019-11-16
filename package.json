@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/AR-Lilypad/bamazon#readme",
   "dependencies": {
-    "cli-table": "^0.3.1",
-    "cli-table2": "^0.2.0",
     "inquirer": "^7.0.0",
     "mysql": "^2.17.1"
   }
