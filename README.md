@@ -37,4 +37,10 @@ The inquirer package provides prompts and an inquiry session flow. Inquirer.js' 
  - in the command line change directory to Bamazon
  - type `node bamazonCustomer.js`
  - follow the prompts
+_________________________________________________________________________________________________________________________
 
+## Visual Examples:
+
+Here's a video to show the command in action and its results:   https://youtu.be/osY74FCzmHA
+ 
+![](https://github.com/AR-Lilypad/bamazon/blob/master/assets/images/bamazonCustomer_Moment.jpg)
