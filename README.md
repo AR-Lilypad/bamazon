@@ -30,6 +30,7 @@ The inquirer package provides prompts and an inquiry session flow. Inquirer.js' 
 
 ### Runing the Bamazon app
  - You can run this app by forking this repository and downloading it to your computer. 
+ - npm install
  - In the code editor that you use, (in this case Visual Studio Code), open the application folder that will contain all of the node modules and dependent packages, *Inquirer* and *MYSQL*.  
  - Run the database in MYSQL workbench. 
  - Open terminal from within the code editor or through GIT Bash.
