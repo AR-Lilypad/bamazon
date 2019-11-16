@@ -18,7 +18,7 @@ connection.connect(function (err) {
     // run the start function after the connection is made to prompt the user
 });
 
-const bamTable = function() {
+const bamTable = function () {
     // query the database for items being purchased
     connection.query("SELECT * FROM products", function (err, results) {
         if (err) throw err;
@@ -31,7 +31,7 @@ const bamTable = function() {
         shop();
     });
     // let the shopping begin- create function to begin the query
-    let shop = function() {
+    let shop = function () {
         inquirer
             .prompt({
                 name: "id",
@@ -44,8 +44,7 @@ const bamTable = function() {
                     err, results) {
                     if (err) throw err;
                     if (results.length === 0) {
-                        console.log("Not a valid product ID, please select a product ID number for the item you wish to purchase."
-                        );
+                        console.log("Not a valid product ID, please select a product ID number for the item you wish to purchase.");
                         shop();
                     } else {
                         inquirer
@@ -58,24 +57,40 @@ const bamTable = function() {
                                 let quantity = answerQty.quantity;
                                 // let price = answer.quantity * price;
                                 if (quantity > results[0].quantity) {
-                                    console.log("We're sorry but we only have" + results[0].quantity + "items of the merchandise you selected."
+                                    console.log("We're sorry but we only have " + results[0].quantity + " of your selection. Would you like a smaller quantity?"
                                     );
                                     shop();
                                 } else {
+                                    console.log("\n");
                                     console.log("Thank you for your purchase!");
                                     console.log(results[0].product_name + " purchased.");
                                     console.log("Qty " + quantity + " @ $ " + results[0].price + "ea.");
-                                    // console.log("Your total is: $" + (quantity * price));
+                                    console.log("Your Total Purchase is $ " + (quantity * results[0].price.toFixed(2)));
+                                    // tally the product qty, price & total purchase, console.log("Your total is: $" + (quantity * price));
+
+                                    //adjust inventory
+                                    // let adjInventory = results[0].quantity - quantity;
+                                    // connection.query("UPDATE products SET ? WHERE ?", [{}] {
+                                    let adjInventory = "UPDATE products SET ? WHERE ?"
+                                    
+                                    
+                                    connection.query(adjInventory, [{ quantity: results[0].quantity }, { id: selection }], function (err, results) {
+                                        if (err) throw err;
+                                        else {
+                                            console.log("\n");
+                                            console.log("Your order is processed and will ship next business day.");
+                                            console.log("Thank you for shopping with us and please come again or make another purchase.");
+                                            bamTable();
+                                            connection.end();
+                                        }
+                                    })
                                 }
                             })
-    
                     }
                 })
             })
-    
     }
-    
-} 
-bamTable();
+}
+
 
 //can you take the variables and name them at the global level at top then try to calculate?

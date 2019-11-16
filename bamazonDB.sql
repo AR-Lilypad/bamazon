@@ -45,7 +45,7 @@ INSERT INTO products (product_name, department_name, price, quantity)
 VALUES ("Wrangler boot socks - 3pair", "clothing", 16.99, 422);
 
 INSERT INTO products (product_name, department_name, price, quantity)
-VALUES ("NYDJ trousers", "clothing", 71.50, 548);
+VALUES ("NYDJ Trousers", "clothing", 71.50, 548);
 
 INSERT INTO products (product_name, department_name, price, quantity)
 VALUES ("Dockers Flex Jeans", "clothing", 34.90, 33.90);
