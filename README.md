@@ -1,4 +1,4 @@
-## bamazon
+## Bamazon
 Bamazon is command line application providing a retail shopping application for a user.
 The application utilizes ***Node.js***, ***Inquirer***, and ***MSQL database***.
 ***Highlights*** 
@@ -19,7 +19,7 @@ Alibama-zon...
 
 As stated by 'sitepoint' (a developer's hub for information sharing) "*NoSQL* databases are all the rage these days, and probably the preferred back end for Node.js applications. But you shouldn’t architect your next project based on what’s hip and trendy. The type of database you use should depend on the project’s requirements. *If your project involves dynamic table creation, real-time inserts etc. then NoSQL is the way to go.* But on the other hand, if your project deals with complex queries and transactions, then an SQL database makes much more sense.
 
-**Iquirer** is inquirer, a collection of common interactive command-line user interfaces.
+**Inquirer** is inquirer, a collection of common interactive command-line user interfaces.
 
 The inquirer package provides prompts and an inquiry session flow. Inquirer.js' purpose is to ease the process of:
 * providing error feedback
