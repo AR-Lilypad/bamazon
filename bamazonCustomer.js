@@ -71,26 +71,27 @@ const bamTable = function () {
                                     //adjust inventory
                                     // let adjInventory = results[0].quantity - quantity;
                                     // connection.query("UPDATE products SET ? WHERE ?", [{}] {
-                                    let adjInventory = "UPDATE products SET ? WHERE ?"
-                                    
-                                    
-                                    connection.query(adjInventory, [{ quantity: results[0].quantity }, { id: selection }], function (err, results) {
-                                        if (err) throw err;
-                                        else {
-                                            console.log("\n");
-                                            console.log("Your order is processed and will ship next business day.");
-                                            console.log("Thank you for shopping with us and please come again or make another purchase.");
-                                            bamTable();
-                                            connection.end();
-                                        }
-                                    })
+                                    // let adjInventory = "UPDATE products SET ? WHERE ?"
+                                    // connection.query("UPDATE Products SET stock_quantity = stock_quantity - " + quntityStocks + " WHERE item_id = " + id);
+
+                                    connection.query("UPDATE Products SET quantity = quantity - " + answerQty.quantity + ' WHERE iD = ' + selection);
+
+                                    // connection.query(adjInventory, [{ quantity: results[0].quantity }, { id: selection }], function (err, results) {
+                                    if (err) throw err;
+                                    else {
+                                        console.log("\n");
+                                        console.log("Your order is processed and will ship next business day.");
+                                        console.log("Thank you for shopping with us and please come again or make another purchase.");
+                                        connection.end();
+                                    }
                                 }
                             })
-                    }
+                        }
+                    })
                 })
-            })
-    }
-}
+            }
+        }
+        bamTable();
 
 
 //can you take the variables and name them at the global level at top then try to calculate?
